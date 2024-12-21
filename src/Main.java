@@ -5,5 +5,8 @@
 
 public class Main {
     public static void main(String[] args) {
-        System.out.printf("Bem Vindos a BelleBooks, a biblioteca ");
+        System.out.println("Bem Vindos a BelleBooks, a biblioteca ");
+    }
+}
+
 

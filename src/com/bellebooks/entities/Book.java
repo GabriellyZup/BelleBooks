@@ -1,7 +1,7 @@
 package com.bellebooks.entities;
 
 //importa a ArrayList para a lista de emprestados
-import java.util.ArrayList;
+//import java.util.ArrayList;
 //import.java.util.List; (descomentar???)
 
 //representa o livro na biblioteca
@@ -10,7 +10,9 @@ public class Book {
     private String title;
     private String author;
     private String isbn;
-    private boolean avaliable;
+    private boolean loaned;
+
+
 
 /*    //construtor
     @param title  Titulo do livro
@@ -23,28 +25,34 @@ public class Book {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
-        this.avaliable = true;
+        this.loaned = false; //livro começa não emprestado
     }
 
     //metodo exib detalhes do livro
-    public void exibirDetalhes() {
+    public void displayDetails() {
         System.out.println("Título: " + title);
         System.out.println("Autor: " + author);
         System.out.println("ISBN: " +isbn);
-        System.out.println("Disponível: " + (avaliable ? "Sim" : "Não"));
+        System.out.println("Disponível: " + (!loaned ? "Sim" : "Não"));
     }
 
     //metodo emprestar
-    public void emprestar() {
-        if (avaliable) {
-            avaliable = false; //muda status para indisponível
+    public boolean loanBook() {
+        if (!loaned) {
+            loaned = true;
+            return true; //muda status para disponível
         } else {
             System.out.println("O livro já está emprestado.");
+            return false;
         }
     }
     //metodo devolver
-    public void devolver() {
-        avaliable = true; //muda status para disponível
+    public void returnBook() {
+        if (loaned) {
+            loaned = false;
+        } else {
+            System.out.println("O livro foi devolvido.");
+        }
     }
     //getter & setter para atributos da classe
     public String getTitle() {
@@ -71,11 +79,7 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public boolean isAvaliable() {
-        return avaliable;
-    }
-
-    public void setAvaliable (boolean avaliable){
-        this.avaliable = avaliable;
+    public boolean isLoaned() {
+        return loaned;
     }
 }

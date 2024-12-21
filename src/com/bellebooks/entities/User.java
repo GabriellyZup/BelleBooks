@@ -70,8 +70,4 @@ public class User {
         this.userID = userID;
     }
 
-    public List<Book> getBorrowedBooks() {
-        return borrowedBooks;
-    }
 }
-
