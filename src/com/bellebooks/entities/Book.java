@@ -1,8 +1,11 @@
 package com.bellebooks.entities;
 
-//importa a ArrayList para a lista de emprestados
-//import java.util.ArrayList;
-//import.java.util.List; (descomentar???)
+import com.bellebooks.contracts.Loanable;
+
+
+// a ArrayList para a lista de emprestados
+// java.util.ArrayList;
+//import.java.util.List; //(descomentar???)
 
 //representa o livro na biblioteca
 public class Book {
