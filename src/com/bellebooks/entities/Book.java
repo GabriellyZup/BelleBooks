@@ -4,8 +4,8 @@ import com.bellebooks.contracts.Loanable;
 
 
 // a ArrayList para a lista de emprestados
-// java.util.ArrayList;
-//import.java.util.List; //(descomentar???)
+import java.util.ArrayList;
+import java.util.List;
 
 //representa o livro na biblioteca
 public class Book {

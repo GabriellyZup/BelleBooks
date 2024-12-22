@@ -70,4 +70,6 @@ public class User {
         this.userID = userID;
     }
 
+    public void addLoanedBook(Book book) {
+    }
 }

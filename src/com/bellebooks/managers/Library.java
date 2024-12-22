@@ -119,12 +119,12 @@ public class Library {
             System.out.println("Este livro não existe na base de dados.");
         }
 
-        /*
-        if (bookTitle = !bookTitle.isLoaned()) {
+
+        if (!book.isLoaned()) {
             System.out.println("O livro já está emprestado.");
             return;
         }
-        */
+
         user.addLoanedBook(book); //talvez se resolva quando fizer o leonable
         book.loanBook();
         System.out.println("Livro '" + book.getTitle() + "' emprestado para " + user.getName());
@@ -162,7 +162,7 @@ public class Library {
 
     private Book findBookByTitle(String title){
         for (Book book : books){
-            if (title.equalsIgnoreCase(Book.getTitle())){  //ver isso aqui
+            if (title.equalsIgnoreCase(book.getTitle())){  //ver isso aqui
                 return book;
             }
         }

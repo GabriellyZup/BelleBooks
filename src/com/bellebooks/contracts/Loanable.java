@@ -13,7 +13,14 @@ public interface Loanable {
      * @return true se o emprestimo terminar com a devolução, false se for diferente disso.
      */
 
-    boolean loanBook (String title, String userName);
+    //boolean loanBook (String title, String userName);
 
-    boolean returnBook (String title, String userName);
+    //boolean returnBook (String title, String userName);
+
+    boolean isLoaned();
+
+    void loanBook (String userName);
+
+    void returnBook (String userName);
+
 }
