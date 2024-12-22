@@ -14,8 +14,7 @@ public class Book {
     private String author;
     private String isbn;
     private boolean loaned;
-
-
+    private String loanedBy;
 
 /*    //construtor
     @param title  Titulo do livro
@@ -29,6 +28,7 @@ public class Book {
         this.author = author;
         this.isbn = isbn;
         this.loaned = false; //livro começa não emprestado
+        this.loanedBy = " ";
     }
 
     //metodo exib detalhes do livro
@@ -37,12 +37,16 @@ public class Book {
         System.out.println("Autor: " + author);
         System.out.println("ISBN: " +isbn);
         System.out.println("Disponível: " + (!loaned ? "Sim" : "Não"));
+        if (loaned) {
+            System.out.println("Emprestado para: " + loanedBy);
+        }
     }
 
     //metodo emprestar
-    public boolean loanBook() {
+    public boolean loanBook(String userName) {
         if (!loaned) {
             loaned = true;
+            loanedBy = userName;
             return true; //muda status para disponível
         } else {
             System.out.println("O livro já está emprestado.");
@@ -50,11 +54,14 @@ public class Book {
         }
     }
     //metodo devolver
-    public void returnBook() {
+    public void returnBook(String userName) {
         if (loaned) {
             loaned = false;
+            loanedBy = userName;
+            System.out.println("Livro devolvido.");
+
         } else {
-            System.out.println("O livro foi devolvido.");
+            System.out.println("O livro está disponível.");
         }
     }
     //getter & setter para atributos da classe
@@ -62,7 +69,7 @@ public class Book {
         return title;
     }
 
-    public void setTitle() {
+    public void setTitle(String title) {
         this.title = title;
     }
 
@@ -84,5 +91,9 @@ public class Book {
 
     public boolean isLoaned() {
         return loaned;
+    }
+
+    public String getLoanedBy() {
+        return loanedBy;
     }
 }
