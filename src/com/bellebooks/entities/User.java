@@ -20,7 +20,7 @@ public class User {
         this.loanedBooks = new ArrayList<>(); //inicializa a lista de livros
     }
 
-    public void displaydetails(){
+    public void displayDetails(){
         System.out.println("Usuário: " + userName);
         System.out.println("ID: " + userID);
         System.out.println("Livros emprestados: ");

@@ -51,7 +51,7 @@ public class Library {
         } else {
             System.out.println("Lista de usuários:");
             for (User user : users) {
-                user.displaydetails();
+                user.displayDetails();
                 System.out.println("--------------");
             }
         }
@@ -126,7 +126,7 @@ public class Library {
         }
 
         user.addLoanedBook(book); //talvez se resolva quando fizer o leonable
-        book.loanBook();
+        book.loanBook(userName);
         System.out.println("Livro '" + book.getTitle() + "' emprestado para " + user.getUserName());
     }
 
@@ -143,13 +143,9 @@ public class Library {
             System.out.println("Livro não encontrado.");
             return;
         }
-/*
-        if (!user.removeLoanedBook(book)){
-            System.out.println("Usuário não emprestou eese livro.");
-            return;
-        }
-*/
-        book.returnBook();
+
+        !user.removeLoanedBook(book);
+        book.returnBook(userName);
         System.out.println("Livro '" + book.getTitle() + "' devolvido por " + user.getUserName());
     }
 
@@ -168,4 +164,5 @@ public class Library {
         }
         return null;
     }
- }
+
+}

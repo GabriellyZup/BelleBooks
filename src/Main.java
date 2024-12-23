@@ -51,7 +51,7 @@ public class Main {
                 int userId = scanner.nextInt();
                 scanner.nextLine();
 
-                if (library.getUSerById(userId) != null) {
+                if (library.getUserId(userId) != null) {
                     System.out.println("Esse Id de usuário já está sendo utilizado. Escolha outro ID.");
                 } else {
                     User user = new User(userName, userId);

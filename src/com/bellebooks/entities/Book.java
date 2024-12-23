@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //representa o livro na biblioteca
-public class Book {
+public class Book implements Loanable {
     //atributos
     private String title;
     private String author;
