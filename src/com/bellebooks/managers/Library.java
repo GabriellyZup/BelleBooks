@@ -8,18 +8,13 @@ import com.bellebooks.contracts.Loanable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Classe Library é a administração da biblioteca, com gerencimanto de livros e users
- */
 
 public class Library {
     public boolean loanBook;
     private List<User> users;
     private List<Book> books;
     private List<Loanable> loanables;
-    /*
-    Construtor da class Library, Inicializa a lista de user com ArrayList
-     */
+
 
     public Library() {
         this.users = new ArrayList<>();
@@ -57,12 +52,7 @@ public class Library {
             }
         }
     }
-/*
-* Metodo para buscar user pelo nome
-*
-*   @param name O nome do usuário que está buscando
-*   @return O objeto User correspondente, ou null se não encontrado.
- */
+
     public User findUserByName(String name) {
         for (User user : users) {
             if (user.getUserName().equalsIgnoreCase(name)){
@@ -138,12 +128,12 @@ public class Library {
 
         if (user == null) {
             System.out.println("Usuário não encontrado.");
-            return false;
+            return true;
         }
 
         if (book == null) {
             System.out.println("Livro não encontrado.");
-            return false;
+            return true;
         }
 
         user.removeLoanedBook(book);

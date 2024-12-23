@@ -8,11 +8,6 @@ public class User {
     private String userID;
     private List<Book> loanedBooks;
 
-    /**
-     * contrutor user
-     * @param userName Nome do usuário
-     * @param userID Identificação do usuário
-     */
 
     public User (String userName, String userID){
         this.userName = userName;
@@ -34,23 +29,13 @@ public class User {
         }
     }
 
-    /**
-     * metodo para add a lista de livros emprestados
-     *
-     * @param book O livro a ser adicionado
-     */
 
     public void loanBook(Book book){
 
         loanedBooks.add(book); //book e ?
     }
 
-    /**
-     * Metodo para remover um livro da lista de livros emprestado.
-     * @param  book O livro a ser removido.
-     */
-
-    public void returnBook (Book book) {
+        public void returnBook (Book book) {
         loanedBooks.remove(book);
     }
 

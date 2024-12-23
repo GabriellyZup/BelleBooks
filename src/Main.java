@@ -60,19 +60,20 @@ public class Main {
                 }
                 break;
 
-            case 3: //emprestimo
-                System.out.println("Digite nome do livro");
-                String loanTitle = scanner.nextLine();
-                System.out.println("Digite o ID do usuário: ");
-                String loanUserId = scanner.nextLine();
-                scanner.nextLine();
+            case 3: // empréstimo
+                System.out.println("Digite o nome do livro:");
+                String loanTitle = scanner.nextLine(); // Captura o título do livro
 
+                System.out.println("Digite o nome do usuário:");
+                String loanUserId = scanner.nextLine(); // Captura o nome do usuário
 
-                boolean loanSuccess = library.loanBook;
+                // Chama o método loanBook com os argumentos corretos
+                boolean loanSuccess = library.loanBook(loanUserId, loanTitle);
+
                 if (loanSuccess) {
-                    System.out.println("Emprestimo realizado com sucesso!");
+                    System.out.println("Empréstimo realizado com sucesso!");
                 } else {
-                    System.out.println("Não foi possivel realizar o emprestimo. Verifique as informações");
+                    System.out.println("Não foi possível realizar o empréstimo. Verifique as informações.");
                 }
                 break;
 
