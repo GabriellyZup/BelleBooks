@@ -13,6 +13,7 @@ import java.util.List;
  */
 
 public class Library {
+    public boolean loanBook;
     private List<User> users;
     private List<Book> books;
     private List<Loanable> loanables;
@@ -107,13 +108,13 @@ public class Library {
         }
     }
 
-    public void loanBook(String userName, String bookTitle) {
+    public boolean loanBook(String userName, String bookTitle) {
         User user = findUserByName(userName);
         Book book = findBookByTitle(bookTitle);
 
         if (user == null) {
             System.out.println("Usuário não encontrado.");
-            return;
+            return true;
         }
         if (book == null){
             System.out.println("Este livro não existe na base de dados.");
@@ -122,31 +123,33 @@ public class Library {
 
         if (!book.isLoaned()) {
             System.out.println("O livro já está emprestado.");
-            return;
+            return false;
         }
 
         user.addLoanedBook(book); //talvez se resolva quando fizer o leonable
         book.loanBook(userName);
         System.out.println("Livro '" + book.getTitle() + "' emprestado para " + user.getUserName());
+        return true;
     }
 
-    public void returnBook(String userName, String bookTitle) {
+    public boolean returnBook(String userName, String bookTitle) {
         User user = findUserByName(userName);
         Book book = findBookByTitle(bookTitle);
 
         if (user == null) {
             System.out.println("Usuário não encontrado.");
-            return;
+            return false;
         }
 
         if (book == null) {
             System.out.println("Livro não encontrado.");
-            return;
+            return false;
         }
 
-        !user.removeLoanedBook(book);
+        user.removeLoanedBook(book);
         book.returnBook(userName);
         System.out.println("Livro '" + book.getTitle() + "' devolvido por " + user.getUserName());
+        return true;
     }
 
     /*
@@ -165,4 +168,7 @@ public class Library {
         return null;
     }
 
+    public boolean getUserId(String userId) {
+        return true;
+    }
 }

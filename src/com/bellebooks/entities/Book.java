@@ -48,20 +48,21 @@ public class Book implements Loanable {
             loaned = true;
             loanedBy = userName;
             return true; //muda status para disponível
-        } else {
+        }
             System.out.println("O livro já está emprestado.");
             return false;
-        }
+
     }
     //metodo devolver
-    public void returnBook(String userName) {
+    public boolean returnBook(String userName) {
         if (loaned) {
             loaned = false;
             loanedBy = userName;
             System.out.println("Livro devolvido.");
-
+            return loaned;
         } else {
             System.out.println("O livro está não está emprestado.");
+            return loaned;
         }
     }
     //getter & setter para atributos da classe

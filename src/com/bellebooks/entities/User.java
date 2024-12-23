@@ -78,4 +78,8 @@ public class User {
     public void addLoanedBook(Book book) {
     }
 
+    public boolean removeLoanedBook(Book book) {
+        return true;
+
+    }
 }

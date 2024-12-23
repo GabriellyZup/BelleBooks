@@ -48,10 +48,10 @@ public class Main {
                 System.out.println("Digite o nome do usuário: ");
                 String userName = scanner.nextLine();
                 System.out.println("Digite o ID de usuário: ");
-                int userId = scanner.nextInt();
+                String userId = scanner.next();
                 scanner.nextLine();
 
-                if (library.getUserId(userId) != null) {
+                if (library.getUserId(userId)) {
                     System.out.println("Esse Id de usuário já está sendo utilizado. Escolha outro ID.");
                 } else {
                     User user = new User(userName, userId);
@@ -64,11 +64,12 @@ public class Main {
                 System.out.println("Digite nome do livro");
                 String loanTitle = scanner.nextLine();
                 System.out.println("Digite o ID do usuário: ");
-                int loanUserId = scanner.nextInt();
+                String loanUserId = scanner.nextLine();
                 scanner.nextLine();
 
-                boolean loanSucess = library.loanBook(loanTitle, loanUserId);
-                if (loanSucess) {
+
+                boolean loanSuccess = library.loanBook;
+                if (loanSuccess) {
                     System.out.println("Emprestimo realizado com sucesso!");
                 } else {
                     System.out.println("Não foi possivel realizar o emprestimo. Verifique as informações");
@@ -79,7 +80,7 @@ public class Main {
                 System.out.println("Digite o título do livro: ");
                 String returnTitle = scanner.nextLine();
                 System.out.println("Digite o ID do usuário: ");
-                int returnUserId = scanner.nextInt();
+                String returnUserId = scanner.next();
                 scanner.nextLine();
 
                 boolean returnSuccess = library.returnBook(returnTitle, returnUserId);
@@ -92,7 +93,7 @@ public class Main {
 
                 case 5:
                     System.out.println("\nLivros disponíveis:");
-                    library.displayAvailiableBooks();
+                    library.listBooks();
                     break;
 
                 case 6:

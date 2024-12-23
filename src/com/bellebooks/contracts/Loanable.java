@@ -5,19 +5,13 @@ package com.bellebooks.contracts;
 
 public interface Loanable {
 
-    /**
-     * Define os dados do emprestavel
-     *
-     * @param title O título a ser emprestado
-     * @param userName O nome do usuário que esta emprestando
-     * @return true se o emprestimo terminar com a devolução, false se for diferente disso.
-     */
+
 
 
     boolean isLoaned();
 
-    void loanBook (String userName);
+    boolean loanBook (String userName);
 
-    void returnBook (String userName);
+    boolean returnBook (String userName);
 
 }
