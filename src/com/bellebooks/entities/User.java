@@ -4,24 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-    private String name;
+    private String userName;
     private String userID;
     private List<Book> borrowedBooks;
 
     /**
      * contrutor user
-     * @param name Nome do usuário
+     * @param userName Nome do usuário
      * @param userID Identificação do usuário
      */
 
-    public User (String name, String userID){
-        this.name = name;
+    public User (String userName, String userID){
+        this.userName = userName;
         this.userID = userID;
-        this.borrowedBooks = new ArrayList<>(); //inicializa a lista de livros
+        this.loanedBooks = new ArrayList<>(); //inicializa a lista de livros
     }
 
-    public void exibirDetalhes(){
-        System.out.println("USuário: " + name);
+    public void displaydetails(){
+        System.out.println("USuário: " + userName);
         System.out.println("ID: " + userID);
         System.out.println("Livros emprestados: ");
         if (borrowedBooks.isEmpty()){
@@ -58,8 +58,8 @@ public class User {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getUserID() {
