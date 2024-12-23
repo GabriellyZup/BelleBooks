@@ -28,7 +28,7 @@ public class Book {
         this.author = author;
         this.isbn = isbn;
         this.loaned = false; //livro começa não emprestado
-        this.loanedBy = " ";
+        this.loanedBy = " "; //nenhum user ainda
     }
 
     //metodo exib detalhes do livro
@@ -61,7 +61,7 @@ public class Book {
             System.out.println("Livro devolvido.");
 
         } else {
-            System.out.println("O livro está disponível.");
+            System.out.println("O livro está não está emprestado.");
         }
     }
     //getter & setter para atributos da classe
@@ -95,5 +95,10 @@ public class Book {
 
     public String getLoanedBy() {
         return loanedBy;
+    }
+
+    public void setLoaned(String loanedBy) {
+        this.loaned = true;
+        this.loanedBy = loanedBy;
     }
 }
