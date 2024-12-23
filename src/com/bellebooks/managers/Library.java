@@ -34,13 +34,13 @@ public class Library {
     public void addUser(User user) {
         //ver se ja tem cadastro
         for (User u : users) {
-            if (u.getName().equalsIgnoreCase(user.getName())){
-                System.out.println("Usuário já cadstrado: " + user.getName());
+            if (u.getUserName().equalsIgnoreCase(user.getUserName())){
+                System.out.println("Usuário já cadstrado: " + user.getUserName());
                 return; //iterrompe se ja tiver cadastro
             }
         }
         users.add(user);
-        System.out.println("Usuário adicionado com sucesso: " + user.getName());
+        System.out.println("Usuário adicionado com sucesso: " + user.getUserName());
     }
         /*
         * metododo lista user cadastrado + detalh
@@ -51,7 +51,7 @@ public class Library {
         } else {
             System.out.println("Lista de usuários:");
             for (User user : users) {
-                user.exibirDetalhes();
+                user.displaydetails();
                 System.out.println("--------------");
             }
         }
@@ -64,7 +64,7 @@ public class Library {
  */
     public User findUserByName(String name) {
         for (User user : users) {
-            if (user.getName().equalsIgnoreCase(name)){
+            if (user.getUserName().equalsIgnoreCase(name)){
                 return user;
             }
         }
@@ -127,7 +127,7 @@ public class Library {
 
         user.addLoanedBook(book); //talvez se resolva quando fizer o leonable
         book.loanBook();
-        System.out.println("Livro '" + book.getTitle() + "' emprestado para " + user.getName());
+        System.out.println("Livro '" + book.getTitle() + "' emprestado para " + user.getUserName());
     }
 
     public void returnBook(String userName, String bookTitle) {
@@ -150,7 +150,7 @@ public class Library {
         }
 */
         book.returnBook();
-        System.out.println("Livro '" + book.getTitle() + "' devolvido por " + user.getName());
+        System.out.println("Livro '" + book.getTitle() + "' devolvido por " + user.getUserName());
     }
 
     /*

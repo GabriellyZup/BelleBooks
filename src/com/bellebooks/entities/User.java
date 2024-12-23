@@ -6,7 +6,7 @@ import java.util.List;
 public class User {
     private String userName;
     private String userID;
-    private List<Book> borrowedBooks;
+    private List<Book> loanedBooks;
 
     /**
      * contrutor user
@@ -21,13 +21,13 @@ public class User {
     }
 
     public void displaydetails(){
-        System.out.println("USuário: " + userName);
+        System.out.println("Usuário: " + userName);
         System.out.println("ID: " + userID);
         System.out.println("Livros emprestados: ");
-        if (borrowedBooks.isEmpty()){
+        if (loanedBooks.isEmpty()){
             System.out.println("Nenhum livro emprestado.");
         } else {
-            for (Book book : borrowedBooks){
+            for (Book book : loanedBooks){
                 System.out.println("- " + book.getTitle());
 
             }
@@ -40,8 +40,9 @@ public class User {
      * @param book O livro a ser adicionado
      */
 
-    public void adicionarLivro(Book book){
-        borrowedBooks.add(book); //book e ?
+    public void loanBook(Book book){
+
+        loanedBooks.add(book); //book e ?
     }
 
     /**
@@ -49,13 +50,13 @@ public class User {
      * @param  book O livro a ser removido.
      */
 
-    public void removerLivro (Book book) {
-        borrowedBooks.remove(book);
+    public void returnBook (Book book) {
+        loanedBooks.remove(book);
     }
 
     //Getters and setters para atributos de da classe
-    public String getName (){
-        return name;
+    public String getUserName(){
+        return userName;
     }
 
     public void setUserName(String userName) {
@@ -70,6 +71,11 @@ public class User {
         this.userID = userID;
     }
 
+    public List<Book> getLoanedBooks(){
+        return loanedBooks;
+    }
+
     public void addLoanedBook(Book book) {
     }
+
 }
