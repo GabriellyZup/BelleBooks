@@ -53,14 +53,17 @@ public class Main {
 
                 if (library.getUserId(userId)) {
                     System.out.println("Esse Id de usuário já está sendo utilizado. Escolha outro ID.");
-                } else {
-                    User user = new User(userName, userId);
+
+
+                } else { User user = new User(userName, userId);
                     library.addUser(user);
                     System.out.println("Usuário cadastrado com sucesso!");
+
+
                 }
                 break;
 
-            case 3: // empréstimo
+            case 3:
                 System.out.println("Digite o nome do livro:");
                 String loanTitle = scanner.nextLine(); // Captura o título do livro
 
@@ -77,7 +80,7 @@ public class Main {
                 }
                 break;
 
-            case 4: //devolução
+            case 4:
                 System.out.println("Digite o título do livro: ");
                 String returnTitle = scanner.nextLine();
                 System.out.println("Digite o ID do usuário: ");
@@ -92,18 +95,18 @@ public class Main {
                 }
                 break;
 
-                case 5:
-                    System.out.println("\nLivros disponíveis:");
-                    library.listBooks();
-                    break;
+            case 5:
+                System.out.println("\nLivros disponíveis:");
+                library.listBooks();
+                break;
 
-                case 6:
-                    running = false;
-                    System.out.println("Obrigada por usar a BelleBooks! Até a próxima!");
-                    break;
+            case 6:
+                running = false;
+                System.out.println("Obrigada por usar a BelleBooks! Até a próxima!");
+                break;
 
-                default:
-                    System.out.println("Opção Invalida. Tente novamente.");
+            default:
+                 System.out.println("Opção Invalida. Tente novamente.");
             }
         }
         scanner.close();
