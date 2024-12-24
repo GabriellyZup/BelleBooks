@@ -10,8 +10,8 @@ public interface Loanable {
 
     boolean isLoaned();
 
-    boolean loanBook (String userName);
+    boolean loanBook (String loanedBy);
 
-    boolean returnBook (String userName);
+    boolean returnBook ();
 
 }
