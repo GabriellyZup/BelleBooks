@@ -77,7 +77,7 @@ public class Library {
                 return;
             }
         }
-        books.add(book); //?
+        books.add(book);
         System.out.println("Livro adicionado com sucesso: " + book.getTitle());
     }
 
@@ -159,6 +159,11 @@ public class Library {
     }
 
     public boolean getUserId(String userId) {
+        for (User user : users) {
+            if (user.getUserID().equalsIgnoreCase(userId)) {
+
+            }
+        }
         return true;
     }
 }

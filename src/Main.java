@@ -25,10 +25,11 @@ public class Main {
         System.out.println("4. Realizar devolução");
         System.out.println("5. Exibir livros disponíveis");
         System.out.println("6. Sair");
+        System.out.println("7 Exibir usuários cadastrados");
         System.out.print("Opção: ");
 
         int choice = scanner.nextInt();
-        scanner.nextLine(); //quebra de linha?
+        scanner.nextLine();
 
         switch (choice) {
             case 1:
@@ -83,7 +84,7 @@ public class Main {
             case 4:
                 System.out.println("Digite o título do livro: ");
                 String returnTitle = scanner.nextLine();
-                System.out.println("Digite o ID do usuário: ");
+                System.out.println("Digite o nome do usuário: ");
                 String returnUserId = scanner.next();
                 scanner.nextLine();
 
@@ -103,6 +104,10 @@ public class Main {
             case 6:
                 running = false;
                 System.out.println("Obrigada por usar a BelleBooks! Até a próxima!");
+                break;
+
+            case 7:
+                library.listUsers();
                 break;
 
             default:

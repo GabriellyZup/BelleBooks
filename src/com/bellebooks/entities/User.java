@@ -32,7 +32,7 @@ public class User {
 
     public void loanBook(Book book){
 
-        loanedBooks.add(book); //book e ?
+        loanedBooks.add(book);
     }
 
         public void returnBook (Book book) {
@@ -65,6 +65,5 @@ public class User {
 
     public boolean removeLoanedBook(Book book) {
         return true;
-
     }
 }

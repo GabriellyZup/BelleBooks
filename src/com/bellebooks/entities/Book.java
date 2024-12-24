@@ -2,8 +2,6 @@ package com.bellebooks.entities;
 
 import com.bellebooks.contracts.Loanable;
 
-
-// a ArrayList para a lista de emprestados
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,8 +33,9 @@ public class Book implements Loanable {
     public void displayDetails() {
         System.out.println("Título: " + title);
         System.out.println("Autor: " + author);
-        System.out.println("ISBN: " +isbn);
+        System.out.println("ISBN: " + isbn);
         System.out.println("Disponível: " + (!loaned ? "Sim" : "Não"));
+
         if (loaned) {
             System.out.println("Emprestado para: " + loanedBy);
         }
