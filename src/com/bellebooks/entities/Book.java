@@ -42,10 +42,10 @@ public class Book implements Loanable {
     }
 
     //metodo emprestar
-    public boolean loanBook(String userName) {
+    public boolean loanBook(String loanedBy) {
         if (!loaned) {
             loaned = true;
-            loanedBy = userName;
+            this.loanedBy = loanedBy;
             return true; //muda status para disponível
         }
             System.out.println("O livro já está emprestado.");
@@ -53,15 +53,14 @@ public class Book implements Loanable {
 
     }
     //metodo devolver
-    public boolean returnBook(String userName) {
+    public boolean returnBook() {
         if (loaned) {
             loaned = false;
-            loanedBy = userName;
-            System.out.println("Livro devolvido.");
             return loaned;
+
         } else {
             System.out.println("O livro está não está emprestado.");
-            return loaned;
+            return false;
         }
     }
     //getter & setter para atributos da classe

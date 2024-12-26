@@ -41,7 +41,7 @@ public class Main {
                 String isbn = scanner.nextLine();
 
                 Book book = new Book(title, author, isbn);
-                library.addBook(book);
+                library.addBook(Book);
                 System.out.println("Livro cadastrado com sucesso!");
                 break;
 
@@ -52,15 +52,13 @@ public class Main {
                 String userId = scanner.next();
                 scanner.nextLine();
 
-                if (library.getUserId(userId)) {
+                if (library.findUserById(userId) != null) {
                     System.out.println("Esse Id de usuário já está sendo utilizado. Escolha outro ID.");
 
 
                 } else { User user = new User(userName, userId);
                     library.addUser(user);
                     System.out.println("Usuário cadastrado com sucesso!");
-
-
                 }
                 break;
 
@@ -84,11 +82,11 @@ public class Main {
             case 4:
                 System.out.println("Digite o título do livro: ");
                 String returnTitle = scanner.nextLine();
-                System.out.println("Digite o nome do usuário: ");
+                System.out.println("Digite o ID do usuário: ");
                 String returnUserId = scanner.next();
                 scanner.nextLine();
 
-                boolean returnSuccess = library.returnBook(returnTitle, returnUserId);
+                boolean returnSuccess = library.returnBook(returnUserId, returnTitle);
                 if (returnSuccess) {
                     System.out.println("Devolução realizada com sucesso!");
                 } else {

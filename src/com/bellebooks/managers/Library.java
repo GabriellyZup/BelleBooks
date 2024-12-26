@@ -28,7 +28,6 @@ public class Library {
      */
 
     public void addUser(User user) {
-        //ver se ja tem cadastro
         for (User u : users) {
             if (u.getUserName().equalsIgnoreCase(user.getUserName())){
                 System.out.println("Usuário já cadstrado: " + user.getUserName());
@@ -72,7 +71,7 @@ public class Library {
 
     public void addBook(Book book) {
         for (Book b : books) {
-             if (b.getTitle().equalsIgnoreCase(book.getTitle())) {
+             if (b.getIsbn().equalsIgnoreCase(book.getIsbn())) {
                 System.out.println("Livro ja cadastrado: " + book.getTitle());
                 return;
             }
@@ -80,11 +79,6 @@ public class Library {
         books.add(book);
         System.out.println("Livro adicionado com sucesso: " + book.getTitle());
     }
-
-
-    /*
-    *
-     */
 
     public void listBooks(){
         if (books.isEmpty()){
@@ -98,9 +92,9 @@ public class Library {
         }
     }
 
-    public boolean loanBook(String userName, String bookTitle) {
-        User user = findUserByName(userName);
-        Book book = findBookByTitle(bookTitle);
+    public boolean loanBook(String userId, String bookIsbn) {
+        User user = findUserById(userID);
+        Book book = findBookByIsbn(bookIsbn);
 
         if (user == null) {
             System.out.println("Usuário não encontrado.");
@@ -110,21 +104,32 @@ public class Library {
             System.out.println("Este livro não existe na base de dados.");
         }
 
-
         if (!book.isLoaned()) {
             System.out.println("O livro já está emprestado.");
             return false;
         }
 
-        user.addLoanedBook(book); //talvez se resolva quando fizer o leonable
-        book.loanBook(userName);
+        //ver se o user ja tem 3 livros emprestados
+        if (user.loanedBooks.size() >=3) {
+            System.out.println("Este usuário já tem 3 livros emprestados.");
+            return false;
+        }
+        if (user.loanedBooks.contains(book)){
+            System.out.println("Este livro ja foi emprestado para este usuário");
+            return false;
+        }
+
+
+
+        user.addLoanedBook(book);
+        book.loanBook(user.getUserName());
         System.out.println("Livro '" + book.getTitle() + "' emprestado para " + user.getUserName());
         return true;
     }
 
-    public boolean returnBook(String userName, String bookTitle) {
-        User user = findUserByName(userName);
-        Book book = findBookByTitle(bookTitle);
+    public boolean returnBook(String userID, String bookIsbn) {
+        User user = findUserByName(userId);
+        Book book = findBookByTitle(bookIsbn);
 
         if (user == null) {
             System.out.println("Usuário não encontrado.");
@@ -137,21 +142,14 @@ public class Library {
         }
 
         user.removeLoanedBook(book);
-        book.returnBook(userName);
+        book.returnBook(userID);
         System.out.println("Livro '" + book.getTitle() + "' devolvido por " + user.getUserName());
         return true;
     }
 
-    /*
-    *Encontra o livro pelo titulo
-    *
-    * @param title Título do livro.
-    * @retur O objeto correspondente, ou null se não encotrado.
-     */
-
     private Book findBookByTitle(String title){
         for (Book book : books){
-            if (title.equalsIgnoreCase(book.getTitle())){  //ver isso aqui
+            if (title.equalsIgnoreCase(book.getTitle())){
                 return book;
             }
         }
@@ -164,6 +162,6 @@ public class Library {
 
             }
         }
-        return true;
+        return false;
     }
 }
